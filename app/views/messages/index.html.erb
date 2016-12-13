@@ -11,6 +11,7 @@
         <!-- BootstrapのJS読み込み -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
+<body>
 <form class="from-horizontal">
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -40,11 +41,9 @@
     <label for="name2" class="control-label col-sm-2">内容:</labe>
   </div>
   
-  <divclass="form-group">
+  <div class="form-group">
     <%= f.text_area :body %>
   </div>
-  
-  <br>
   
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
@@ -53,4 +52,5 @@
   </div>
 </form>
 <% end %>
+</body>
 </html>
