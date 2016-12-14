@@ -8,49 +8,45 @@
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- jQuery読み込み -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <!-- BootstrapのJS読み込み -->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
 </head>
 <body>
-<form class="from-horizontal">
-<div class="panel panel-default">
-  <div class="panel-heading">
-    メッセージ一覧
-  </div>
+  <form class="from-horizontal">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          メッセージ一覧
+      </div>
     
-  <div class="panel-body">
-    <% @messages.each do |message| %>
+    <div class="panel-body">
+      <% @messages.each do |message| %>
       <span class="label label-info"><%= message.name %></span>
       <%= message.body %>
       <br>
     <% end %>
   </div>
 </div>
-
-
-  <div class="form-group">
-    <%= form_for(@message) do |f| %>
-      <label for="name2" class="control-label col-sm-2">名前:</labe>
-  </div>
+  </form>
   
-  <div>
-    <%= f.text_field :name %>
-  </div>
+    
+      <%= form_for(@message) do |f| %>
+      <div class="form-group">
+          <label for="name2">名前:</labe>
+      <%= f.text_field :name %>
+      </div>
+      
+      <div class="form-group">
+          <label for="name2">内容:</labe>
+      <%= f.text_area :body, class:"form-control"%>
+      </div>
   
-  <div class="form-group">
-    <label for="name2" class="control-label col-sm-2">内容:</labe>
-  </div>
-  
-  <div class="form-group">
-    <%= f.text_area :body %>
-  </div>
-  
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
+    <div class="form-group">
       <%= f.submit class: "btn btn-sm btn-primary" %>
     </div>
-  </div>
-</form>
-<% end %>
+  
+
+  <% end %>
+  
+
 </body>
 </html>
