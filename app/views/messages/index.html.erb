@@ -26,27 +26,29 @@
     <% end %>
   </div>
 </div>
+
+<!-- フォーム追加-->
+
   </form>
   
-    
-      <%= form_for(@message) do |f| %>
-      <div class="form-group">
-          <label for="name2">名前:</labe>
-      <%= f.text_field :name %>
-      </div>
+    <div class="form-horizontal" role="form">
+        <%= form_for(@message) do |f| %>
+        <div class="form-group">
+            <label for="name">名前:</labe>
+        <%= f.text_field :name ,class: "form-control"%>
+        </div>
       
-      <div class="form-group">
-          <label for="name2">内容:</labe>
-      <%= f.text_area :body, class:"form-control"%>
+        <div class="form-group">
+            <label for="discription">内容:</labe>
+      <%= f.text_area :body, class:"form-control" %>
+       </div>
+  
+     <div class="form-group">
+        <%= f.submit class: "btn btn-sm btn-primary" %>
       </div>
-  
-    <div class="form-group">
-      <%= f.submit class: "btn btn-sm btn-primary" %>
-    </div>
-  
 
-  <% end %>
-  
+      <% end %>
+    </div>  
 
 </body>
 </html>
