@@ -2,53 +2,56 @@
 <html lang = "ja">
 <head>
   <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Message Board</title>
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- jQuery読み込み -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 </head>
 <body>
-  <form class="from-horizontal">
-      <div class="panel panel-default">
+      <div class="panel panel-default col-sm-offset-1 ">
         <div class="panel-heading">
           メッセージ一覧
-      </div>
+        </div>
     
-    <div class="panel-body">
-      <% @messages.each do |message| %>
-      <span class="label label-info"><%= message.name %></span>
-      <%= message.body %>
-      <br>
-    <% end %>
-  </div>
-</div>
+      <div class="panel-body">
+        <% @messages.each do |message| %>
+          <span class="label label-info"><%= message.name %></span>
+        <%= message.body %>
+        <br>
+      <% end %>
+        </div>
+      </div>
 
-<!-- フォーム追加-->
-
-  </form>
   
-    <div class="form-horizontal" role="form">
-        <%= form_for(@message) do |f| %>
+    
+      <%= form_for(@message, html: { class: 'form-horizontal'}) do |f| %>
+      
         <div class="form-group">
-            <label for="name">名前:</labe>
-        <%= f.text_field :name ,class: "form-control"%>
+            <label for="name" class="col-sm-2 control-label">名前:</label>
+            <%#= f.label :name, "名前:", class:"col-sm-2 control-label" %>
+              <div class="col-sm-8">
+                <%= f.text_field :name ,class: "form-control" %>
+              </div>
         </div>
       
         <div class="form-group">
-            <label for="discription">内容:</labe>
-      <%= f.text_area :body, class:"form-control" %>
-       </div>
-  
-     <div class="form-group">
-        <%= f.submit class: "btn btn-sm btn-primary" %>
-      </div>
-
+          <label for="body" class="col-sm-2 control-label">内容:</label>
+            <%#= f.label :body, "内容:", class: "col-sm-2 control-label" %>
+              <div class="col-sm-8">
+                <%= f.text_area :body, class: "form-control" %>
+              </div>
+        </div>
+        
+         <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-8">
+              <%= f.submit class: "btn btn-sm btn-primary" %>
+          </div>
+        <div/>
+        
       <% end %>
-    </div>  
 
 </body>
 </html>
