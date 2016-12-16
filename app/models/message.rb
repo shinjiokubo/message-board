@@ -4,7 +4,6 @@ class Message < ActiveRecord::Base
   # 内容は必須入力かつ2文字以上30文字以下
   validates :body , length: { minimum: 2, maximum: 30 } , presence: true
   # 年齢（age)に0から150以下の数字だけ受け付ける
-  validates :age , length: { minimum: 1, maximum: 3 } , presence: true
-  
+  validates :age , numericality: true , inclusion: {in: 0..150 } 
 end
 
