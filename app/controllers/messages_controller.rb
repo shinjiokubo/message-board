@@ -7,8 +7,6 @@ class MessagesController < ApplicationController
       @messages = Message.all
     end
 
-
-
   def edit
   end
   
@@ -49,7 +47,4 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
   end
 end
-#class MessagesController < ApplicationController
-#  def index
-#  end
-#end
+
